@@ -9,29 +9,27 @@ namespace ModpackCreator
 {
 	struct Resource
 	{
-		std::string identifier;
+		// std::string id;
 		std::string filename;
-		std::set<std::shared_ptr<Resource>> children;
-
+		std::string path;
+		std::set<std::shared_ptr<Resource>> control;
+		std::set<std::shared_ptr<Resource>> dependsOn;
+		bool independant{true};
 		virtual ~Resource() = default;
 	};
 
 	struct External : Resource
 	{
 		std::string supplier;
+		std::string identifier;
 		std::string version;
 	};
 
 	struct Generated : Resource
 	{
 		std::shared_ptr<Resource> master;
-		std::string identifier;
 	};
 
-	struct File : Resource
-	{
-		int hash;
-	};
 
 } // namespace ModpackCreator
 

@@ -1,0 +1,45 @@
+{
+	"version": 8,
+	"configurePresets": [
+		{
+			"name": "debug",
+			"displayName": "Debug - Linux",
+			"description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
+			"binaryDir": "${sourceDir}/build/${presetName}",
+			"cacheVariables": {
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
+				"CMAKE_C_COMPILER": "/usr/bin/gcc",
+				"CMAKE_CXX_COMPILER": "/usr/bin/g++",
+				"CMAKE_CXX_FLAGS": "-Wall -Wextra -g",
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		},
+		{
+			"name": "release",
+			"displayName": "Release Linux",
+			"description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
+			"binaryDir": "${sourceDir}/build/${presetName}",
+			"cacheVariables": {
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
+				"CMAKE_C_COMPILER": "/usr/bin/gcc",
+				"CMAKE_CXX_COMPILER": "/usr/bin/g++",
+				"CMAKE_CXX_FLAGS": "-Wall -Wextra -O3",
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "Debug",
+			"description": "",
+			"displayName": "",
+			"configurePreset": "debug"
+		},
+		{
+			"name": "Release",
+			"description": "",
+			"displayName": "",
+			"configurePreset": "release"
+		}
+	]
+}
